@@ -27,10 +27,10 @@ const BannerSection = (props: Props) => {
               Made with ❤️ in India
             </h1>
             <p className="leading-relaxed text-[14px] lg:font-normal md:leading-[30px]">
-              Tradewise is India’s growing financial services platform where
-              users can find their investment solutions pertaining to mutual
-              funds, stocks, US Stocks, ETFs, IPO, and F&Os, to invest their
-              money without hassles.
+              Tradewise is growing financial services platform where users can
+              find their investment solutions pertaining to mutual funds,
+              stocks, US Stocks, ETFs, IPO, and F&Os, to invest their money
+              without hassles.
             </p>
           </div>
         </div>

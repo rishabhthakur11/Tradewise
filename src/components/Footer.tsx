@@ -24,10 +24,10 @@ const Footer = (props: Props) => {
           </div>
           <div>
             <p className="mt-5 text-[16px] text-white">
-              Tradewise is India’s growing financial services platform where
-              users can find their investment solutions pertaining to mutual
-              funds, stocks, US Stocks, ETFs, IPO, and F&Os, to invest their
-              money without hassles.
+              Tradewise is growing financial services platform where users can
+              find their investment solutions pertaining to mutual funds,
+              stocks, US Stocks, ETFs, IPO, and F&Os, to invest their money
+              without hassles.
             </p>
           </div>
           <div>
