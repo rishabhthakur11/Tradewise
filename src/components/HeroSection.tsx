@@ -14,7 +14,7 @@ export default function HeroSection() {
                 All things finance, right here .
               </h1>
               <p className="mt-6 text-lg leading-8 text-textGray font-semibold mx-auto max-w-3xl">
-                Whether it's planning your savings with a new-age savings
+                Whether its planning your savings with a new-age savings
                 account, investing in mutual funds and high-interest products -
                 do it all on Tradewise.
               </p>
