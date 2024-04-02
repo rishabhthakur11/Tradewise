@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export default function HeroSection() {
   return (
     <>
@@ -12,7 +10,7 @@ export default function HeroSection() {
               </div>
             </div>
             <div className="text-center leading-tight">
-              <h1 className="text-8xl font-bold  text-black leading-tight tracking-wider">
+              <h1 className="text-6xl md:text-8xl font-bold text-black leading-tight tracking-wider">
                 All things finance, right here .
               </h1>
               <p className="mt-6 text-lg leading-8 text-textGray font-semibold mx-auto max-w-3xl">

@@ -1,6 +1,7 @@
 import HeroSection from "@/components/HeroSection";
 import Navbar from "@/components/Navbar";
 import Stocks from "@/components/Stocks";
+import Wallet from "@/components/Wallet";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       </div>
       <div className="mx-auto">
         <Stocks />
+        <Wallet />
       </div>
     </div>
   );

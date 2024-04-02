@@ -22,37 +22,44 @@ export default function Stocks() {
       </div>
       <div className="max-w-6xl mx-auto">
         <div className="container mx-auto flex px-8 py-24 md:flex-row flex-col  justify-between">
-          <div className="md:w-1/2 w-full mb-10 md:mb-0 flex justify-center">
+          <div className="md:w-1/2 w-full mb-10 md:mb-0 flex justify-center md:justify-start">
             <Image src={stocks} width={300} height={300} alt="Stocks" />
           </div>
-          <div className=" md:w-1/2 flex flex-col md:items-start md:text-left items-center text-center">
+          <div className=" md:w-1/2 flex flex-col md:items-start md:text-left items-center text-center md:justify-between">
+            <p className="text-4xl md:text-6xl font-medium">
+              Indian Stock market at your fingertips.
+            </p>
             <div>
-              <h1 className="text-2xl mb-4 font-semibold text-themeBlue">
-                Stocks & Intraday
-              </h1>
-              <p className="mb-8 leading-relaxed text-textGray text-md">
-                At levelUp, you get to learn by doing, Escape tutorials hell by
-                solving real-world challenges in our interactive labs, all
-                within your browser.
-              </p>
-            </div>
-            <div>
-              <h1 className="text-2xl mb-4 font-semibold text-[#8AA6E2]">
-                Mutual Funds and SIPs
-              </h1>
-              <p className="mb-8 leading-relaxed text-textGray text-md">
-                Level up your skills with our immersive learning platform and
-                discover the transformative impact of hands-on practice.
-              </p>
-            </div>
-            <div>
-              <h1 className="text-2xl mb-4 font-semibold text-[#8AA6E2]">
-                High Interest Products
-              </h1>
-              <p className="mb-8 leading-relaxed text-textGray text-md">
-                Level up your skills with our immersive learning platform and
-                discover the transformative impact of hands-on practice.
-              </p>
+              <div>
+                <h1 className="text-2xl mb-4 font-semibold text-themeBlue mt-20">
+                  Stocks & Intraday
+                </h1>
+                <p className="mb-8 leading-relaxed text-textGray text-md text-justify">
+                  At Tradewise, you can invest in stocks and intraday trading
+                  with ease. We provide you with the tools and resources to make
+                  informed decisions.
+                </p>
+              </div>
+              <div>
+                <h1 className="text-2xl mb-4 font-semibold text-themeBlue">
+                  Mutual Funds and SIPs
+                </h1>
+                <p className="mb-8 leading-relaxed text-textGray text-md text-justify">
+                  Invest in mutual funds and SIPs with Tradewise. We offer a
+                  diverse range of mutual funds to help you achieve your
+                  financial goals.
+                </p>
+              </div>
+              <div>
+                <h1 className="text-2xl mb-4 font-semibold text-themeBlue">
+                  High Interest Products
+                </h1>
+                <p className="mb-8 leading-relaxed text-textGray text-md text-justify">
+                  Invest in high-interest products with Tradewise. We offer a
+                  diverse range of high-interest products to help you achieve
+                  your financial goals.
+                </p>
+              </div>
             </div>
           </div>
         </div>
