@@ -1,3 +1,5 @@
+import BannerSection from "@/components/BannerSection";
+import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import Navbar from "@/components/Navbar";
 import Stocks from "@/components/Stocks";
@@ -15,6 +17,12 @@ export default function Home() {
       <div className="mx-auto">
         <Stocks />
         <Wallet />
+      </div>
+      <div>
+        <BannerSection />
+      </div>
+      <div>
+        <Footer />
       </div>
     </div>
   );
