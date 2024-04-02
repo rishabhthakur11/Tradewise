@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React from "react";
+import React, { Suspense } from "react";
 import { Button } from "./ui/button";
 import Image from "next/image";
 import logo from "../../public/logo/logo_transparent.png";
@@ -19,7 +19,9 @@ function Navbar({}: Props) {
           </div>
         </Link>
         <div className="flex gap-x-12 text-lg font-normal hidden lg:flex">
-          <SearchInput />
+          <Suspense>
+            <SearchInput />
+          </Suspense>
         </div>
       </div>
 
