@@ -20,6 +20,12 @@ import logo from "../../../../public/logo/logo_transparent.png";
 import Image from "next/image";
 
 const formSchema = z.object({
+  firstname: z.string().min(2, {
+    message: "First name must be at least 2 characters.",
+  }),
+  lastname: z.string().min(2, {
+    message: "Last name must be at least 2 characters.",
+  }),
   email: z.string().email({
     message: "Please enter a valid email address.",
   }),
@@ -32,6 +38,8 @@ function Signup() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
+      firstname: "",
+      lastname: "",
       email: "",
       password: "",
     },
@@ -47,7 +55,7 @@ function Signup() {
   return (
     <div className="w-2/3 h-fit px-10 pb-4 pt-6 bg-white rounded-lg p-6">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
           <Link href="/">
             <div className="flex items-center gap-x-2">
               <Image
@@ -60,6 +68,32 @@ function Signup() {
             </div>
           </Link>
           <h3 className="text-xl font-semibold">Signup to Tradewise</h3>
+          <FormField
+            control={form.control}
+            name="firstname"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>First Name</FormLabel>
+                <FormControl>
+                  <Input placeholder="First Name" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="lastname"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Last Name</FormLabel>
+                <FormControl>
+                  <Input placeholder="Last Name" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
           <FormField
             control={form.control}
             name="email"
@@ -86,7 +120,6 @@ function Signup() {
               </FormItem>
             )}
           />
-
           <Button type="submit">Create account</Button>
         </form>
       </Form>
