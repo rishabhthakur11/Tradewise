@@ -100,12 +100,12 @@ function Login() {
             <span className="flex-1 border-t border-gray-300 ml-2"></span>{" "}
             {/* Horizontal line on the right */}
           </p>
-          <div className="flex justify-center">
-            <GoogleAuth />
-          </div>
         </form>
       </Form>
-      <div className="text-sm font-medium text-textGray mt-10">
+      <div className="flex justify-center mt-5">
+        <GoogleAuth />
+      </div>
+      <div className="text-sm font-medium text-textGray mt-5">
         Not Registered ?
         <Button onClick={() => router.push("/auth/signup")} variant="link">
           Create Account
