@@ -45,7 +45,7 @@ function Signup() {
     }
   };
   return (
-    <div className="w-2/3 h-2/3 px-10 pb-4 pt-6 bg-white rounded-lg p-6">
+    <div className="w-2/3 h-fit px-10 pb-4 pt-6 bg-white rounded-lg p-6">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <Link href="/">

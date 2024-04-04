@@ -19,6 +19,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import logo from "../../../../public/logo/logo_transparent.png";
 import Image from "next/image";
+import GoogleAuth from "@/components/socialAuthButtons/GoogleAuth";
 
 const formSchema = z.object({
   email: z.string().email({
@@ -48,7 +49,7 @@ function Login() {
   return (
     <div className="w-2/3 h-2/3 px-10 pb-4 pt-6 bg-white rounded-lg p-6">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
           <Link href="/">
             <div className="flex items-center gap-x-2">
               <Image
@@ -92,6 +93,16 @@ function Login() {
           />
 
           <Button type="submit">Log In</Button>
+          <p className="flex items-center justify-center text-gray-600">
+            <span className="flex-1 border-t border-gray-300 mr-2"></span>{" "}
+            {/* Horizontal line on the left */}
+            <span>OR</span>
+            <span className="flex-1 border-t border-gray-300 ml-2"></span>{" "}
+            {/* Horizontal line on the right */}
+          </p>
+          <div className="flex justify-center">
+            <GoogleAuth />
+          </div>
         </form>
       </Form>
       <div className="text-sm font-medium text-textGray mt-10">
