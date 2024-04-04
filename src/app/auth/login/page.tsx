@@ -28,7 +28,7 @@ const formSchema = z.object({
     message: "Password must be at least 8 characters.",
   }),
 });
-function page() {
+function Login() {
   const router = useRouter();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -104,4 +104,4 @@ function page() {
   );
 }
 
-export default page;
+export default Login;

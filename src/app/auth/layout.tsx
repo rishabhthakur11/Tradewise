@@ -2,7 +2,6 @@ import Image from "next/image";
 import login from "../../../public/assets/login.svg";
 import Link from "next/link";
 
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -18,6 +17,7 @@ export default function RootLayout({
               alt="Login Image"
               objectFit="cover"
               width={450}
+              priority
             />
           </div>
           <div className="w-1/2 h-screen flex justify-center items-center bg-white">
