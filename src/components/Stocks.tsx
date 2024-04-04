@@ -4,7 +4,7 @@ import stocks from "../../public/assets/stocks.webp";
 
 export default function Stocks() {
   return (
-    <div className="mt-24">
+    <div className="mt-52">
       <div className="mx-auto max-w-7xl px-6 lg:px-8 flex flex-col justify-center">
         <h2 className="text-center text-lg font-semibold leading-8 text-textGray tracking-wider">
           EXPLORE THE TRADEWISE WAY

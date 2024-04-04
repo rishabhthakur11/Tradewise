@@ -1,13 +1,16 @@
+"use client";
 import Link from "next/link";
 import React, { Suspense } from "react";
 import { Button } from "./ui/button";
 import Image from "next/image";
 import logo from "../../public/logo/logo_transparent.png";
 import { SearchInput } from "./SearchInput";
+import { useRouter } from "next/navigation";
 
 type Props = {};
 
 function Navbar({}: Props) {
+  const router = useRouter();
   return (
     <div className="flex py-5 items-center px-5">
       {/* leftSide */}
@@ -27,7 +30,7 @@ function Navbar({}: Props) {
 
       <div>
         <div className="hidden lg:flex gap-x-7 text-lg text-black font-normal items-center">
-          <Button>
+          <Button onClick={() => router.push("/auth/login")}>
             <p>Login/Register</p>
           </Button>
         </div>

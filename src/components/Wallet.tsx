@@ -4,7 +4,7 @@ import stocks from "../../public/assets/wallet.svg";
 
 export default function Wallet() {
   return (
-    <div className="mt-24">
+    <div className="relative mt-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8 flex flex-col justify-center">
         <h2 className="text-center text-lg font-semibold leading-8 text-textGray tracking-wider">
           Fast Order Execution
@@ -23,6 +23,9 @@ export default function Wallet() {
       <div className="max-w-6xl mx-auto">
         <div className="container mx-auto flex px-8 py-24 md:flex-row flex-col  justify-between">
           <div className="md:w-1/2 w-full mb-10 md:mb-0 flex justify-center md:justify-start">
+            <div className="absolute top-0 -z-10 h-full w-full bg-white">
+              <div className="absolute bottom-auto right-auto left-0 top-52 h-[500px] w-[500px] -translate-x-[30%] translate-y-[20%] rounded-full bg-[#8AA6E2] opacity-50 blur-[80px]"></div>
+            </div>
             <Image
               src={stocks}
               width={450}

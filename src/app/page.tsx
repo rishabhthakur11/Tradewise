@@ -7,7 +7,7 @@ import Wallet from "@/components/Wallet";
 
 export default function Home() {
   return (
-    <div className="bg-backgroundColor h-fit w-full">
+    <div className="absolute inset-0 -z-10 h-full w-full bg-white [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#63e_100%)]">
       <div className="max-w-6xl mx-auto">
         <Navbar />
       </div>
