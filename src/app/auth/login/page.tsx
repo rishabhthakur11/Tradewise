@@ -20,6 +20,7 @@ import Link from "next/link";
 import logo from "../../../../public/logo/logo_transparent.png";
 import Image from "next/image";
 import GoogleAuth from "@/components/socialAuthButtons/GoogleAuth";
+import { userlogin } from "@/http";
 
 const formSchema = z.object({
   email: z.string().email({
@@ -41,13 +42,24 @@ function Login() {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      console.log("Login Logic");
+      const { email, password } = values;
+      if (!email || !password) return toast.error("Please fill all the fields");
+
+      // Call the login api
+      const res = await userlogin({ email, password });
+      const { success }: any = res;
+      if (success) {
+        toast.success("Login successfully");
+        router.push("/stocks/user/explore");
+      } else {
+        toast.error("Something went wrong");
+      }
     } catch {
       toast.error("Something went wrong");
     }
   };
   return (
-    <div className="w-2/3 h-2/3 px-10 pb-4 pt-6 bg-white rounded-lg p-6">
+    <div className="w-full md:w-2/3 h-fit  md:h-2/3 px-10 md:pb-4 md:pt-6 bg-white rounded-lg p-6 mt-10 md:mt-0">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
           <Link href="/">
@@ -85,9 +97,7 @@ function Login() {
                   <Input type="password" placeholder="Password" {...field} />
                 </FormControl>
                 <FormDescription className="flex justify-end">
-                  <Link href="/auth/forgetpassword">
-                    <p>Forget Password?</p>
-                  </Link>
+                  <Link href="/auth/forgetpassword">Forget Password?</Link>
                 </FormDescription>
                 <FormMessage />
               </FormItem>

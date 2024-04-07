@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import { ToastProvider } from "@/components/providers/toaster-provider";
+import { AuthProvider } from "@/store/authContext";
 
 const roboto = Roboto({
   weight: ["100", "300", "400", "500", "700", "900"],
@@ -21,9 +22,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      {/* <ToastProvider /> */}
-      <body className={roboto.className}>{children}</body>
-    </html>
+    <AuthProvider>
+      <html lang="en">
+        <body className={roboto.className}>
+          <ToastProvider />
+          {children}
+        </body>
+      </html>
+    </AuthProvider>
   );
 }

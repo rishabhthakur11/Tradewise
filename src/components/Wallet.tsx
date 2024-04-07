@@ -26,13 +26,7 @@ export default function Wallet() {
             <div className="absolute top-0 -z-10 h-full w-full bg-white">
               <div className="absolute bottom-auto right-auto left-0 top-52 h-[500px] w-[500px] -translate-x-[30%] translate-y-[20%] rounded-full bg-[#8AA6E2] opacity-50 blur-[80px]"></div>
             </div>
-            <Image
-              src={stocks}
-              width={450}
-              height={300}
-              alt="Stocks"
-              objectFit="contain"
-            />
+            <Image src={stocks} width={450} height={300} alt="Stocks" />
           </div>
           <div className=" md:w-1/2 flex flex-col md:items-start md:text-left items-center text-center md:justify-between">
             <p className="text-4xl md:text-6xl font-medium">
