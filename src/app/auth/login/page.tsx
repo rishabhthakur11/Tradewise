@@ -21,6 +21,7 @@ import logo from "../../../../public/logo/logo_transparent.png";
 import Image from "next/image";
 import GoogleAuth from "@/components/socialAuthButtons/GoogleAuth";
 import { userlogin } from "@/http";
+import { useAuth } from "@/store/authContext";
 
 const formSchema = z.object({
   email: z.string().email({
@@ -31,6 +32,7 @@ const formSchema = z.object({
   }),
 });
 function Login() {
+  const { setAuthenticatedState } = useAuth();
   const router = useRouter();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -48,8 +50,12 @@ function Login() {
       // Call the login api
       const res = await userlogin({ email, password });
       const { success }: any = res;
+      console.log(res);
       if (success) {
         toast.success("Login successfully");
+        // set the user in context
+        // setAuthenticatedState({ isAuthenticated: true, user: res?.existingUser });
+
         router.push("/stocks/user/explore");
       } else {
         toast.error("Something went wrong");

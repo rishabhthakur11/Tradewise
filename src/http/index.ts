@@ -5,9 +5,26 @@ const api = axios.create({
   withCredentials: true,
 });
 
+//interface for userLogin
+interface LoginObjectType {
+  email: string;
+  password: string;
+
+}
+
+interface RegisterObjectType {
+  first_name: string;
+  last_name: string;
+  email: string;
+  password: string;
+  phone: string;
+  dateOfBirth: string;
+  profileImgUrl: string;
+}
+
 //AUTH
-export const userlogin = (data: any) => api.post("/auth/login", data);
-export const userRegister = (data: any) => api.post("/auth/register", data);
+export const userlogin = (data: LoginObjectType) => api.post("/auth/login", data);
+export const userRegister = (data: RegisterObjectType) => api.post("/auth/register", data);
 export const googleAuth = () => api.get("/auth/google/signIn");
 
 

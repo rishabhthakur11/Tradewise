@@ -23,7 +23,7 @@ export default function Stocks() {
       <div className="max-w-6xl mx-auto">
         <div className="container mx-auto flex px-8 py-24 md:flex-row flex-col  justify-between">
           <div className="md:w-1/2 w-full mb-10 md:mb-0 flex justify-center md:justify-start">
-            <Image src={stocks} width={300} height={300} alt="Stocks" />
+            <Image src={stocks} width={300} alt="Stocks" priority />
           </div>
           <div className=" md:w-1/2 flex flex-col md:items-start md:text-left items-center text-center md:justify-between">
             <p className="text-4xl md:text-6xl font-medium">

@@ -45,10 +45,10 @@ const formSchema = z.object({
   phone: z.string().min(10, {
     message: "Phone number must be at least 10 characters.",
   }),
-  dateOfBirth: z.date({
+  dob: z.date({
     required_error: "A date of birth is required.",
   }),
-  profileImgUrl: z.string().optional(),
+  profileImgUrl: z.string(),
 });
 function Signup() {
   const router = useRouter();
@@ -72,17 +72,12 @@ function Signup() {
         email,
         password,
         phone,
-        dateOfBirth,
+        dob,
         profileImgUrl,
       } = values;
-      if (
-        !first_name ||
-        !last_name ||
-        !email ||
-        !password ||
-        !phone ||
-        !dateOfBirth
-      ) {
+      const dateOfBirth = dob.toISOString();
+
+      if (!first_name || !last_name || !email || !password || !phone || !dob) {
         return toast.error("Please fill all the fields");
       }
       const res = await userRegister({
@@ -189,7 +184,7 @@ function Signup() {
 
           <FormField
             control={form.control}
-            name="dateOfBirth"
+            name="dob"
             render={({ field }) => (
               <FormItem className="flex flex-col">
                 <FormLabel>Date of birth</FormLabel>

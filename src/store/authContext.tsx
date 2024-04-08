@@ -1,26 +1,24 @@
 "use client";
+import UserType from "@/utils/interfaces/userType";
 import React, { createContext, useContext, useState } from "react";
 
-interface AuthState {
+interface AuthPayloadType {
   isAuthenticated: boolean;
-  user: null | string;
-  email: string;
+  user: UserType | null;
 }
 
 interface AuthContextType {
-  authState: AuthState;
-  login: (email: string) => void;
-  logout: () => void;
+  setAuthenticatedState: (authState: AuthPayloadType) => void;
 }
 
-const initialAuthState: AuthState = {
+const initialAuthState: AuthPayloadType = {
   isAuthenticated: false,
   user: null,
-  email: "",
 };
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
+// Custom Hook to use the AuthContext
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {
@@ -30,18 +28,14 @@ export const useAuth = () => {
 };
 
 export const AuthProvider = ({ children }: any) => {
-  const [authState, setAuthState] = useState<AuthState>(initialAuthState);
+  const [authState, setAuthState] = useState<AuthPayloadType>(initialAuthState);
 
-  const login = (email: string) => {
-    setAuthState({ isAuthenticated: true, user: email, email });
-  };
-
-  const logout = () => {
-    setAuthState(initialAuthState);
+  const setAuthenticatedState = (authState: AuthPayloadType) => {
+    setAuthState(authState);
   };
 
   return (
-    <AuthContext.Provider value={{ authState, login, logout }}>
+    <AuthContext.Provider value={{ setAuthenticatedState }}>
       {children}
     </AuthContext.Provider>
   );
