@@ -9,7 +9,7 @@ function UserInvestments({}: Props) {
     <div>
       <div className="flex items-center justify-between">
         <p className="text-slate-500 text-lg font-[500]">Your Investments</p>
-        <Link className="text-[#0CB387]" href="#">
+        <Link className="text-themeBlue" href="#">
           dashboard
         </Link>
       </div>

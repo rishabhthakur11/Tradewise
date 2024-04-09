@@ -28,6 +28,8 @@ import { CalendarIcon } from "lucide-react";
 import { Calendar } from "@/components/ui/calendar";
 import { cn } from "@/lib/utils";
 import { userRegister } from "@/http";
+import { useAuth } from "@/store/authContext";
+import APIResponseType from "@/utils/interfaces/response";
 
 const formSchema = z.object({
   first_name: z.string().min(2, {
@@ -51,6 +53,7 @@ const formSchema = z.object({
   profileImgUrl: z.string(),
 });
 function Signup() {
+  const { setAuthenticatedState } = useAuth();
   const router = useRouter();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -89,12 +92,17 @@ function Signup() {
         dateOfBirth,
         profileImgUrl,
       });
-      const { success }: any = res;
+      console.log(res);
+      const { success }: APIResponseType = res;
       if (success) {
         toast.success("Account created successfully");
+        setAuthenticatedState({
+          isAuthenticated: true,
+          user: res.data,
+        });
         router.push("/stocks/user/explore");
       } else {
-        toast.error("Something went wrong");
+        toast.error(res.message || "Something went wrong");
       }
     } catch {
       toast.error("Something went wrong");

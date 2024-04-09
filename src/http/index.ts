@@ -1,3 +1,4 @@
+import APIResponseType from "@/utils/interfaces/response";
 import axios from "axios";
 
 const api = axios.create({
@@ -23,8 +24,8 @@ interface RegisterObjectType {
 }
 
 //AUTH
-export const userlogin = (data: LoginObjectType) => api.post("/auth/login", data);
-export const userRegister = (data: RegisterObjectType) => api.post("/auth/register", data);
+export const userlogin = (data: LoginObjectType) => api.post<APIResponseType, APIResponseType>("/auth/login", data);
+export const userRegister = (data: RegisterObjectType) => api.post<APIResponseType, APIResponseType>("/auth/register", data);
 export const googleAuth = () => api.get("/auth/google/signIn");
 
 

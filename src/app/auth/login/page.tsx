@@ -22,6 +22,7 @@ import Image from "next/image";
 import GoogleAuth from "@/components/socialAuthButtons/GoogleAuth";
 import { userlogin } from "@/http";
 import { useAuth } from "@/store/authContext";
+import APIResponseType from "@/utils/interfaces/response";
 
 const formSchema = z.object({
   email: z.string().email({
@@ -49,16 +50,18 @@ function Login() {
 
       // Call the login api
       const res = await userlogin({ email, password });
-      const { success }: any = res;
-      console.log(res);
+      const { success }: APIResponseType = res;
+
       if (success) {
         toast.success("Login successfully");
         // set the user in context
-        // setAuthenticatedState({ isAuthenticated: true, user: res?.existingUser });
-
+        setAuthenticatedState({
+          isAuthenticated: true,
+          user: res.data,
+        });
         router.push("/stocks/user/explore");
       } else {
-        toast.error("Something went wrong");
+        toast.error(res.message || "Invalid credentials");
       }
     } catch {
       toast.error("Something went wrong");
