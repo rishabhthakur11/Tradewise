@@ -1,49 +1,29 @@
 import Link from "next/link";
-import React from "react";
+import React, { Suspense } from "react";
 import StocksCard from "./StocksCard";
-import tatasteel from "../../../../../public/assets/stock-assets/logos/tata-steel.webp";
-import reliancepower from "../../../../../public/assets/stock-assets/logos/reliance-power.webp";
-import infosys from "../../../../../public/assets/stock-assets/logos/infosis.webp";
-import vedanta from "../../../../../public/assets/stock-assets/logos/vedanta.webp";
+import { getStocks } from "@/http";
 
-type Props = {};
+type Stock = {
+  symbol: string;
+  name: string;
+  imageUrl: string;
+  price: number;
+  quantity: number;
+  lastPrice: number;
+};
 
-const stocks = [
-  {
-    id: 1,
-    name: "Tata Steel",
-    imageUrl: tatasteel,
-    value: 169.55,
-    change: 0.5,
-    changeType: "positive",
-  },
-  {
-    id: 2,
-    name: "Reliance power",
-    imageUrl: reliancepower,
-    value: 30.55,
-    change: 1.5,
-    changeType: "negative",
-  },
-  {
-    id: 3,
-    name: "Infosys",
-    imageUrl: infosys,
-    value: 1508.55,
-    change: 0.5,
-    changeType: "positive",
-  },
-  {
-    id: 4,
-    name: "Vedanta",
-    imageUrl: vedanta,
-    value: 334.35,
-    change: 0.5,
-    changeType: "positive",
-  },
-];
+async function getStocksData(): Promise<Stock[]> {
+  try {
+    const response = await getStocks();
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching stocks:", error);
+  }
+  return [];
+}
 
-function Stocks({}: Props) {
+async function Stocks() {
+  const stocks: Stock[] = await getStocksData();
   return (
     <div>
       <div className="flex items-center justify-between">
@@ -54,17 +34,20 @@ function Stocks({}: Props) {
           All Stocks
         </Link>
       </div>
-      <div className="flex items-center justify-between mt-5 gap-x-3">
-        {stocks.map((index) => (
-          <StocksCard
-            key={index.id}
-            name={index.name}
-            imageUrl={index.imageUrl}
-            value={index.value}
-            change={index.change}
-            changeType={index.changeType}
-          />
-        ))}
+      <div className="flex flex-wrap mt-5 gap-5">
+        <Suspense fallback={<div>Loading...</div>}>
+          {stocks.map((index) => (
+            <StocksCard
+              key={index.symbol}
+              symbol={index.symbol}
+              name={index.name}
+              imageUrl={index.imageUrl}
+              price={index.price}
+              quantity={index.quantity}
+              lastPrice={index.lastPrice}
+            />
+          ))}
+        </Suspense>
       </div>
     </div>
   );

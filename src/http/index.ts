@@ -2,7 +2,7 @@ import APIResponseType from "@/utils/interfaces/response";
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:5500/api",
+  baseURL: "http://localhost:5502/api",
   withCredentials: true,
 });
 
@@ -27,6 +27,11 @@ interface RegisterObjectType {
 export const userlogin = (data: LoginObjectType) => api.post<APIResponseType, APIResponseType>("/auth/login", data);
 export const userRegister = (data: RegisterObjectType) => api.post<APIResponseType, APIResponseType>("/auth/register", data);
 export const googleAuth = () => api.get("/auth/google/signIn");
+
+// STOCKS
+export const getStocks = () => api.get("/stocks");
+
+
 
 
 

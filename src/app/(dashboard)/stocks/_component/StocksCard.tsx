@@ -1,36 +1,67 @@
 import { formatPrice } from "@/lib/format";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 type Props = {
+  symbol: string;
   name: string;
-  imageUrl: StaticImageData | string;
-  value: number;
-  change: number;
-  changeType: string;
+  imageUrl: string;
+  price: number;
+  quantity: number;
+  lastPrice: number;
 };
 
-function StocksCard({ name, imageUrl, value, change, changeType }: Props) {
+function StocksCard({
+  symbol,
+  name,
+  imageUrl,
+  price,
+  quantity,
+  lastPrice,
+}: Props) {
+  let changeType: string;
+  if (lastPrice > price) changeType = "negative";
+  else changeType = "positive";
+
+  const percentageChange = ((price - lastPrice) / lastPrice) * 100;
+  const change = price - lastPrice;
+  // round to 2 decimal places
+  const roundedPercentageChange = Math.round(percentageChange * 100) / 100;
+  const roundedChange = Math.round(change * 100) / 100;
+
   return (
-    <div className="bg-white rounded-xl overflow-hidden border w-[180px] h-[200px] cursor-pointer">
-      <div className="px-4 py-2 pr-5">
-        <Image src={imageUrl} width={35} alt={name} />
-        <h1 className="text-sm font-normal text-gray-800 mt-4">{name}</h1>
-        <p
-          className={`${
-            changeType == "positive" ? "text-[#0CB387]" : "text-[#EB5B3C]"
-          } text-sm mt-12`}
-        >
-          Value: {formatPrice(value)}
-        </p>
-        <p
-          className={`${
-            changeType == "positive" ? "text-[#0CB387]" : "text-[#EB5B3C]"
-          } mt-1 text-sm`}
-        >
-          ({change} %)
-        </p>
-      </div>
+    <div className="bg-white rounded-xl overflow-hidden border min-w-[160px] max-w-[160px] min-h-[180px] max-h-[180px] cursor-pointer w-full h-full hover:shadow delay-300">
+      <Link href={`/stocks/${symbol}`}>
+        <div className="px-4 py-2 flex flex-col justify-between min-h-[170px] max-h-[170px] h-full">
+          <div>
+            <div className="border rounded-md w-fit h-fit p-1 bg-white">
+              <Image src={imageUrl} width={35} height={35} alt={name} />
+            </div>
+            <div className="mt-3">
+              <h1 className="text-sm font-normal text-textGray mt-2  h-[40px]">
+                {name.length > 30 ? name.slice(0, 30) + "..." : name}
+              </h1>
+            </div>
+          </div>
+          <div className="">
+            <p
+              className={`${
+                changeType == "positive" ? "text-[#0CB387]" : "text-[#EB5B3C]"
+              } text-md`}
+            >
+              {formatPrice(price)}
+            </p>
+            <p
+              className={`${
+                changeType == "positive" ? "text-[#0CB387]" : "text-[#EB5B3C]"
+              } mt-1 text-xs`}
+            >
+              {roundedChange + " "} ({roundedPercentageChange} %)
+            </p>
+          </div>
+        </div>
+      </Link>
     </div>
   );
 }

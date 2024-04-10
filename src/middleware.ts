@@ -4,6 +4,7 @@ export function middleware(req: NextRequest) {
     const path = req.nextUrl.pathname
     const isPublicPath = path === '/auth/login' || path === '/auth/signup' || path === '/auth/forgetpassword' || path === '/auth/resetpassword' || path === '/'
     const accessToken = req.cookies.get('accessToken')
+    //TODO: takeout user from local or useAuthContext
 
     if (isPublicPath && !accessToken) {
         return NextResponse.next()

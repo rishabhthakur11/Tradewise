@@ -6,7 +6,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="h-full max-w-6xl mx-auto">
+    <div className="h-full max-w-6xl mx-auto mb-20">
       <div className="w-full border-b">
         <DashNavbar />
       </div>
