@@ -31,7 +31,7 @@ function StocksCard({
   const roundedChange = Math.round(change * 100) / 100;
 
   return (
-    <div className="bg-white rounded-xl overflow-hidden border min-w-[160px] max-w-[160px] min-h-[180px] max-h-[180px] cursor-pointer w-full h-full hover:shadow delay-300">
+    <div className="bg-white rounded-xl overflow-hidden border min-w-[160px] max-w-[160px] min-h-[180px] max-h-[180px] cursor-pointer w-full h-full hover:shadow delay-300 mb-5">
       <Link href={`/stocks/${symbol}`}>
         <div className="px-4 py-2 flex flex-col justify-between min-h-[170px] max-h-[170px] h-full">
           <div>

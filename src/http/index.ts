@@ -30,6 +30,7 @@ export const googleAuth = () => api.get("/auth/google/signIn");
 
 // STOCKS
 export const getStocks = () => api.get("/stocks");
+export const getIndividualStock = (stockId: string) => api.get(`/stocks/${stockId}`);
 
 
 

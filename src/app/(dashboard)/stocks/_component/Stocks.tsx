@@ -34,7 +34,7 @@ async function Stocks() {
           All Stocks
         </Link>
       </div>
-      <div className="flex flex-wrap mt-5 gap-5">
+      <div className="flex flex-wrap mt-5 justify-between">
         <Suspense fallback={<div>Loading...</div>}>
           {stocks.map((index) => (
             <StocksCard
