@@ -1,5 +1,4 @@
 import { NextResponse, type NextRequest } from 'next/server'
-import useAutoLogin from './hooks/useAutoLogin'
 
 export async function middleware(req: NextRequest) {
     const path = req.nextUrl.pathname
@@ -8,7 +7,7 @@ export async function middleware(req: NextRequest) {
     //TODO: takeout user from local or useAuthContext
 
     // use the session management to check if the user is authenticated
-    
+
 
     if (isPublicPath && !accessToken) {
         return NextResponse.next()
