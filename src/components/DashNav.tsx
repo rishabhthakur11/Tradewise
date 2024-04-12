@@ -19,11 +19,11 @@ function DashNavbar({}: Props) {
   return (
     <div>
       <Navbar />
-      <div className="flex gap-x-10 mt-10 mb-3">
+      <div className="flex gap-x-10 mt-10">
         <Link
           className={cn(
             "text-slate-500 text-lg font-[500]",
-            isStocks && "text-sky-700"
+            isStocks && "text-sky-700 border-b-2 border-sky-700"
           )}
           href="/stocks/user/explore"
         >
@@ -32,7 +32,7 @@ function DashNavbar({}: Props) {
         <Link
           className={cn(
             "text-slate-500 text-lg font-[500]",
-            isMutualFunds && "text-sky-700"
+            isMutualFunds && "text-sky-700 border-b-2 border-sky-700"
           )}
           href="/mutual-fund/user/explore"
         >

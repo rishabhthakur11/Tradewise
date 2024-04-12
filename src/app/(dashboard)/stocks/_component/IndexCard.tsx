@@ -10,7 +10,7 @@ type Props = {
 
 function IndexCard({ name, value, change, changeType }: Props) {
   return (
-    <div className="bg-white rounded-xl overflow-hidden border w-fit cursor-pointer">
+    <div className="bg-white rounded-md overflow-hidden border w-fit cursor-pointer">
       <div className="px-4 py-2 pr-10">
         <h1 className="text-md font-normal text-gray-800">{name}</h1>
         <p

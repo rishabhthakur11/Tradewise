@@ -5,7 +5,7 @@ type Props = {};
 
 function InvestmentCard({}: Props) {
   return (
-    <div className="bg-white rounded-xl border w-full cursor-pointer">
+    <div className="bg-white rounded-md border w-full cursor-pointer">
       <div className="px-4 py-2 flex items-center justify-between">
         <div className="flex flex-col gap-y-3">
           <h1 className="text-md font-normal text-[#0CB387]">

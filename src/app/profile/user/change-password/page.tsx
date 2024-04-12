@@ -15,8 +15,9 @@ import { z } from "zod";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
+import { useAuth } from "@/store/authContext";
+import { changeUserPassword } from "@/http";
+import APIResponseType from "@/utils/interfaces/response";
 
 const formSchema = z.object({
   oldPassword: z.string().min(8, {
@@ -30,7 +31,7 @@ const formSchema = z.object({
   }),
 });
 function changePassword() {
-  const router = useRouter();
+  const { authState, setAuthenticatedState } = useAuth();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -42,25 +43,26 @@ function changePassword() {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-        const { oldPassword, newPassword, confirmPassword } = values;
-        if (!oldPassword || !newPassword || !confirmPassword)
-            return toast.error("Please fill all the fields");
-    
-        if (newPassword !== confirmPassword)
-            return toast.error("Passwords do not match");
-    
-        // Call the login api
-        // const res = await userlogin({ email, password });
-        // const { success }: APIResponseType = res;
-    
-        // if (success) {
+      const { oldPassword, newPassword, confirmPassword } = values;
+      if (!oldPassword || !newPassword || !confirmPassword)
+        return toast.error("Please fill all the fields");
+
+      if (newPassword !== confirmPassword)
+        return toast.error("Passwords do not match");
+      const id = authState.user?._id;
+      // Call the login api
+      const res = await changeUserPassword({
+        _id: id as string,
+        password: oldPassword,
+        newPassword,
+      });
+      const { success }: APIResponseType = res;
+
+      if (success) {
         toast.success("Password changed successfully");
-        // set the user in context
-        // setAuthenticatedState({
-        //   isAuthenticated: true,
-        //   user: res.data,
-        // });
-        // }
+        // reset the form
+        form.reset();
+      }
     } catch {
       toast.error("Something went wrong");
     }

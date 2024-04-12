@@ -47,6 +47,9 @@ export const userlogout = (): Promise<APIResponseType> => api.get("/auth/logout"
 export const getStocks = () => api.get("/stocks");
 export const getIndividualStock = (stockId: string) => api.get(`/stocks/${stockId}`);
 
+// USER 
+export const changeUserPassword = (data:{_id:string,password:string,newPassword:string}) => api.post<APIResponseType, APIResponseType>("user/profile/updatePassword", data);
+
 
 
 
