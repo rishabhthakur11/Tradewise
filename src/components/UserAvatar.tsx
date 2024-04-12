@@ -1,45 +1,48 @@
 "use client";
-import {
-  Building,
-  Cloud,
-  CreditCard,
-  Github,
-  Keyboard,
-  LifeBuoy,
-  LogOut,
-  Mail,
-  MessageSquare,
-  Plus,
-  PlusCircle,
-  Receipt,
-  ReceiptText,
-  Settings,
-  User,
-  UserPlus,
-  Users,
-} from "lucide-react";
+import { Building, LogOut, ReceiptText, Settings, User } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuPortal,
   DropdownMenuSeparator,
   DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import Image from "next/image";
 import { useAuth } from "@/store/authContext";
 import Link from "next/link";
+import { Button } from "./ui/button";
+import { userlogout } from "@/http";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
+import APIResponseType from "@/utils/interfaces/response";
 
 export default function UserAvatar() {
-  const { authState } = useAuth();
+  const { authState, setAuthenticatedState } = useAuth();
   const id = authState.user?.userID;
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    try {
+      const response = await userlogout();
+      const { success }: APIResponseType = response;
+      if (success) {
+        setAuthenticatedState({
+          isAuthenticated: false,
+          user: null,
+        });
+        toast.success("Logged out successfully");
+        router.push("/");
+      } else {
+        toast.error("Failed to logout");
+      }
+    } catch (error) {
+      toast.error("Failed to logout");
+    }
+  };
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -94,9 +97,10 @@ export default function UserAvatar() {
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem className="p-3">
-          <LogOut className="mr-2 h-4 w-4" />
-          <span>Log out</span>
-          <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
+          <Button variant="link" onClick={handleLogout}>
+            <LogOut className="mr-2 h-4 w-4" />
+            <span>Log out</span>
+          </Button>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
