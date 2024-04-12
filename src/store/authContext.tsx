@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }: any) => {
   const setAuthenticatedState = (authState: AuthPayloadType) => {
     setAuthState(authState);
   };
-  // console.log(authState);
+  console.log(authState);
 
   return (
     <AuthContext.Provider value={{ setAuthenticatedState, authState }}>

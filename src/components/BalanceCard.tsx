@@ -14,7 +14,7 @@ export default function BalanceCard() {
   return (
     <HoverCard>
       <HoverCardTrigger asChild>
-        <Wallet size={20} className="text-slate-500" />
+        <Wallet strokeWidth={1} size={22} className="text-slate-500" />
       </HoverCardTrigger>
       <HoverCardContent className="w-80">
         <div className="flex justify-between space-x-4">

@@ -45,7 +45,7 @@ function Navbar({}: Props) {
             <div className="flex gap-x-5 text-black  items-center">
               <Link
                 className={cn(
-                  "text-slate-500 text-sm font-[500]",
+                  "text-slate-500 text-md font-[400]",
                   isExplore && "text-sky-700"
                 )}
                 href="/stocks/user/explore"
@@ -54,7 +54,7 @@ function Navbar({}: Props) {
               </Link>
               <Link
                 className={cn(
-                  "text-slate-500 text-sm font-[500]",
+                  "text-slate-500 text-md font-[400]",
                   isInvestment && "text-sky-700"
                 )}
                 href="/stocks/user/investments"
@@ -72,14 +72,14 @@ function Navbar({}: Props) {
       </div>
 
       <div>
-        <div className="hidden lg:flex gap-x-7 text-lg text-black font-normal items-center">
+        <div className="hidden lg:flex gap-x-6 text-lg text-black font-normal items-center">
           {authState.isAuthenticated ? (
-            <div className="hidden lg:flex gap-x-7 text-lg text-black font-normal items-center">
-              <Bell size={20} className="text-slate-500" />
+            <div className="hidden lg:flex gap-x-8 text-lg text-black font-normal items-center">
+              <Bell strokeWidth={1} size={22} className="text-slate-500" />
               <Link href="/profile/user/balance">
                 <BalanceCard />
               </Link>
-              <ShoppingCart size={20} className="text-slate-500" />
+              <ShoppingCart strokeWidth={1} size={22} className="text-slate-500" />
               <UserAvatar />
             </div>
           ) : (
