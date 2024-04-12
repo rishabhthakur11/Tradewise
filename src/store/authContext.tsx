@@ -1,6 +1,6 @@
 "use client";
 import UserType from "@/utils/interfaces/userType";
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 
 interface AuthPayloadType {
   isAuthenticated: boolean;
@@ -30,22 +30,10 @@ export const useAuth = () => {
 export const AuthProvider = ({ children }: any) => {
   const [authState, setAuthState] = useState<AuthPayloadType>(initialAuthState);
 
-  useEffect(() => {
-    const user = localStorage.getItem("user");
-    if (user) {
-      setAuthState({
-        isAuthenticated: true,
-        user: JSON.parse(user),
-      });
-    }
-  }, []);
-
   const setAuthenticatedState = (authState: AuthPayloadType) => {
     setAuthState(authState);
-    // Save the user in local storage
-    localStorage.setItem("user", JSON.stringify(authState.user));
   };
-  console.log(authState);
+  // console.log(authState);
 
   return (
     <AuthContext.Provider value={{ setAuthenticatedState, authState }}>
