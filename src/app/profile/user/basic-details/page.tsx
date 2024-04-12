@@ -4,7 +4,7 @@ import React from "react";
 
 type Props = {};
 
-function page({}: Props) {
+function BasicDetails({}: Props) {
   const { authState } = useAuth();
   return (
     <div className=" w-full h-fit border bg-white rounded-md">
@@ -38,4 +38,4 @@ function page({}: Props) {
   );
 }
 
-export default page;
+export default BasicDetails;

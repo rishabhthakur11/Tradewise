@@ -9,7 +9,7 @@ import { AddMoney } from "../_components/AddMoney";
 
 type Props = {};
 
-function page({}: Props) {
+function Balance({}: Props) {
   const { authState } = useAuth();
   return (
     <div className="flex gap-x-10">
@@ -41,4 +41,4 @@ function page({}: Props) {
   );
 }
 
-export default page;
+export default Balance;

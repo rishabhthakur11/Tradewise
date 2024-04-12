@@ -76,10 +76,12 @@ function Navbar({}: Props) {
           {authState.isAuthenticated ? (
             <div className="hidden lg:flex gap-x-8 text-lg text-black font-normal items-center">
               <Bell strokeWidth={1} size={22} className="text-slate-500" />
-              <Link href="/profile/user/balance">
-                <BalanceCard />
-              </Link>
-              <ShoppingCart strokeWidth={1} size={22} className="text-slate-500" />
+              <BalanceCard />
+              <ShoppingCart
+                strokeWidth={1}
+                size={22}
+                className="text-slate-500"
+              />
               <UserAvatar />
             </div>
           ) : (

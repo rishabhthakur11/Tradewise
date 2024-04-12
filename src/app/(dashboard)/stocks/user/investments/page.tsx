@@ -2,10 +2,10 @@ import React from 'react'
 
 type Props = {}
 
-function page({}: Props) {
+function UserStockPortfolio({}: Props) {
   return (
     <div>Stock Investments page</div>
   )
 }
 
-export default page
+export default UserStockPortfolio

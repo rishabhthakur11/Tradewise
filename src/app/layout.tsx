@@ -22,13 +22,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <AuthProvider>
-      <html lang="en">
+    <html lang="en">
+      <AuthProvider>
         <body className={roboto.className}>
           <ToastProvider />
           {children}
         </body>
-      </html>
-    </AuthProvider>
+      </AuthProvider>
+    </html>
   );
 }

@@ -6,7 +6,7 @@ import WatchList from "../../_component/WatchList";
 
 type Props = {};
 
-function page({}: Props) {
+function DashBoard({}: Props) {
   return (
     <div className="flex gap-x-16">
       {/* left side  */}
@@ -31,4 +31,4 @@ function page({}: Props) {
   );
 }
 
-export default page;
+export default DashBoard;

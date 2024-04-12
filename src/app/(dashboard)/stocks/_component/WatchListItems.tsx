@@ -9,6 +9,7 @@ import { Separator } from "@/components/ui/separator";
 import { BadgePlus, ChevronsUpDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import React from "react";
+import StockItem from "./StockItem";
 
 interface StockItem {
   id: number;
@@ -50,23 +51,9 @@ function WatchListItems({ watchList }: Props) {
             </div>
             <Separator className="mt-5 mb-5" />
             <CollapsibleContent>
-              {watchList.map((stock, index) => (
+              {watchList.map((stock) => (
                 <>
-                  <div className="flex itsm-center justify-between">
-                    <div className="text-sm">{stock.name}</div>
-                    <div
-                      className={`${
-                        stock.changeType == "positive"
-                          ? "text-[#0CB387]"
-                          : "text-[#EB5B3C]"
-                      } text-sm`}
-                    >
-                      {stock.value} ({stock.change})
-                    </div>
-                  </div>
-                  <Separator
-                    className={index !== watchList.length - 1 ? "my-5" : "mt-5"}
-                  />
+                  <StockItem key={stock.id} stock={stock} />
                 </>
               ))}
             </CollapsibleContent>

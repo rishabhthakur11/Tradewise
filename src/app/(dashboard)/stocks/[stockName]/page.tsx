@@ -1,7 +1,7 @@
 import React from "react";
 import StockDetails from "./_components/StockDetails";
 
-async function page({ params }: { params: { stockName: string } }) {
+async function StockDetailsPage({ params }: { params: { stockName: string } }) {
   return (
     <div className="flex gap-x-16">
       {/* left side  */}
@@ -17,4 +17,4 @@ async function page({ params }: { params: { stockName: string } }) {
   );
 }
 
-export default page;
+export default StockDetailsPage;
