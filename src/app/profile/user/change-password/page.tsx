@@ -62,6 +62,9 @@ function ChangePassword() {
         toast.success("Password changed successfully");
         // reset the form
         form.reset();
+      } else {
+        toast.error("Something went wrong");
+        form.reset();
       }
     } catch {
       toast.error("Something went wrong");

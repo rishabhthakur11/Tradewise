@@ -42,6 +42,7 @@ export const userlogin = (data: LoginObjectType) => api.post<APIResponseType, AP
 export const userRegister = (data: RegisterObjectType) => api.post<APIResponseType, APIResponseType>("/auth/register", data);
 export const googleAuth = () => api.get("/auth/google/signIn");
 export const userlogout = (): Promise<APIResponseType> => api.get("/auth/logout");
+export const userRefreshLogin = (): Promise<APIResponseType> => api.get("/auth/refresh");
 
 // STOCKS
 export const getStocks = () => api.get("/stocks");

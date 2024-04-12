@@ -1,6 +1,7 @@
 "use client";
+import { userRefreshLogin } from "@/http";
 import UserType from "@/utils/interfaces/userType";
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 interface AuthPayloadType {
   isAuthenticated: boolean;
@@ -18,7 +19,7 @@ const initialAuthState: AuthPayloadType = {
 };
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
-// Custom Hook to use the AuthContext
+
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {
@@ -29,11 +30,42 @@ export const useAuth = () => {
 
 export const AuthProvider = ({ children }: any) => {
   const [authState, setAuthState] = useState<AuthPayloadType>(initialAuthState);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    // Set isMounted to true when component mounts
+    setIsMounted(true);
+
+    // Cleanup function to set isMounted to false when component unmounts
+    return () => {
+      setIsMounted(false);
+    };
+  }, []);
+
+  useEffect(() => {
+    // Fetch user data only when isMounted is true, i.e., on browser refresh
+    if (isMounted) {
+      const fetchUser = async () => {
+        try {
+          const res = await userRefreshLogin();
+          const { success } = res;
+          if (success) {
+            setAuthenticatedState({
+              isAuthenticated: true,
+              user: res.data,
+            });
+          }
+        } catch (err) {
+          console.log(err);
+        }
+      };
+      fetchUser();
+    }
+  }, [isMounted]);
 
   const setAuthenticatedState = (authState: AuthPayloadType) => {
     setAuthState(authState);
   };
-  console.log(authState);
 
   return (
     <AuthContext.Provider value={{ setAuthenticatedState, authState }}>
