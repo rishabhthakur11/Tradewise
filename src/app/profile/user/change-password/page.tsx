@@ -30,7 +30,7 @@ const formSchema = z.object({
     message: "Password must be at least 8 characters.",
   }),
 });
-function changePassword() {
+function ChangePassword() {
   const { authState, setAuthenticatedState } = useAuth();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -129,4 +129,4 @@ function changePassword() {
   );
 }
 
-export default changePassword;
+export default ChangePassword;
