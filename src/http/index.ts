@@ -43,13 +43,15 @@ export const userRegister = (data: RegisterObjectType) => api.post<APIResponseTy
 export const googleAuth = () => api.get("/auth/google/signIn");
 export const userlogout = (): Promise<APIResponseType> => api.get("/auth/logout");
 export const userRefreshLogin = (): Promise<APIResponseType> => api.get("/auth/refresh");
+export const userforgotPassword = (data: { email: string }) => api.post<APIResponseType, APIResponseType>("/auth/forgot", data);
+export const userresetPassword = (data: { email: string, password: string, otp: number }) => api.post<APIResponseType, APIResponseType>("/auth/reset", data);
 
 // STOCKS
 export const getStocks = () => api.get("/stocks");
 export const getIndividualStock = (stockId: string) => api.get(`/stocks/${stockId}`);
 
 // USER 
-export const changeUserPassword = (data:{_id:string,password:string,newPassword:string}) => api.post<APIResponseType, APIResponseType>("user/profile/updatePassword", data);
+export const changeUserPassword = (data: { _id: string, password: string, newPassword: string }) => api.put<APIResponseType, APIResponseType>("user/profile/updatePassword", data);
 
 
 

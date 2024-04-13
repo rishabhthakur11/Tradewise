@@ -19,13 +19,12 @@ import Link from "next/link";
 import logo from "../../../../public/logo/logo_transparent.png";
 import Image from "next/image";
 import { Mail } from "lucide-react";
+import { userforgotPassword } from "@/http";
+import APIResponseType from "@/utils/interfaces/response";
 
 const formSchema = z.object({
   email: z.string().email({
     message: "Please enter a valid email address.",
-  }),
-  password: z.string().min(8, {
-    message: "Password must be at least 8 characters.",
   }),
 });
 function ForgetPassword() {
@@ -39,7 +38,17 @@ function ForgetPassword() {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      console.log("Login Logic");
+      const { email } = values;
+      if (!email) return toast.error("Please fill the email");
+      // Call the login api
+      const res = await userforgotPassword({ email });
+      const { success }: APIResponseType = res;
+      if (success) {
+        toast.success(res.message);
+        router.push("/auth/otp");
+      } else {
+        toast.error(res.message);
+      }
     } catch {
       toast.error("Something went wrong");
     }
