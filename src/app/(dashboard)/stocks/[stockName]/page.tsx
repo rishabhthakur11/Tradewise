@@ -1,5 +1,6 @@
 import React from "react";
 import StockDetails from "./_components/StockDetails";
+import BuyStockForm from "./_components/BuyStockForm";
 
 async function StockDetailsPage({ params }: { params: { stockName: string } }) {
   return (
@@ -12,7 +13,9 @@ async function StockDetailsPage({ params }: { params: { stockName: string } }) {
         <div className="mt-10"></div>
       </div>
       {/* right side */}
-      <div className="w-[35%]"></div>
+      <div className="w-[35%]">
+        <BuyStockForm stockName={params.stockName} />
+      </div>
     </div>
   );
 }

@@ -3,7 +3,6 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -20,7 +19,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import toast from "react-hot-toast";
 
@@ -106,14 +104,12 @@ export function AddMoney() {
           <CardHeader>
             <CardTitle>Withdraw Money</CardTitle>
             <CardDescription>
-                Withdraw money from your wallet to your bank account.
+              Withdraw money from your wallet to your bank account.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-2">
-             {/* Feature not implemented yet */}
-            <CardDescription>
-              Feature not implemented yet
-            </CardDescription>
+            {/* Feature not implemented yet */}
+            <CardDescription>Feature not implemented yet</CardDescription>
           </CardContent>
         </Card>
       </TabsContent>

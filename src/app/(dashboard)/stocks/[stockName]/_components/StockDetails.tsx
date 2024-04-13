@@ -1,4 +1,5 @@
-import { getIndividualStock } from "@/http";
+import getIndividualStocksData from "@/actions/getIndividualStocksData";
+import getIndividualStockData from "@/actions/getIndividualStocksData";
 import { formatPrice } from "@/lib/format";
 import { Bookmark } from "lucide-react";
 import Image from "next/image";
@@ -8,18 +9,8 @@ type Stock = {
   stockName: string;
 };
 
-async function getIndividualStockData(stock: string) {
-  try {
-    const response = await getIndividualStock(stock);
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching stocks:", error);
-  }
-  return {};
-}
-
 async function StockDetails({ stockName }: Stock) {
-  const stock = await getIndividualStockData(stockName);
+  const stock = await getIndividualStocksData(stockName);
   let changeType: string;
   if (stock.lastPrice > stock.price) changeType = "negative";
   else changeType = "positive";
