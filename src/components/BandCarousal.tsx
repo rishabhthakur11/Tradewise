@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import image1 from "../../public/assets/image1.svg";
+import image1 from "../../public/screenshots/image 6.png";
 import image2 from "../../public/assets/wallet.webp";
 import {
   Carousel,

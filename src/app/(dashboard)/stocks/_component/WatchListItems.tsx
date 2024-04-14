@@ -64,7 +64,7 @@ function WatchListItems({ watchList }: Props) {
         <Button
           variant="outline"
           size="sm"
-          className="w-full text-themeBlue flex"
+          className="w-full text-sky-700 flex"
         >
           <BadgePlus size={25} className="mr-2" />
           create new wishlist
