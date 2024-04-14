@@ -45,7 +45,7 @@ Welcome to our Stock Trading Application! This platform provides users with the 
 
 ### Built With
 
-<p style="display: flex; gap: 30px; align-items: center;">
+<p style="display: flex; gap: 30px; align-items: center;background-color:#F8F7F4;">
 
 <img alt="Node.js" src="https://brandslogos.com/wp-content/uploads/images/large/nodejs-logo.png" width="80" height="40"/>
 
@@ -63,9 +63,9 @@ To get a local copy up and for running the project locally, follow these simple 
 
 ### Prerequisites
 
-Install [Node.js](https://nodejs.org/en) 18.17 or later.
+> Install [Node.js](https://nodejs.org/en) 18.17 or later.
 
-[Install npm](https://www.npmjs.com/get-npm)
+> [Install npm](https://www.npmjs.com/get-npm) for dependency management
 
 ### Installation
 
@@ -81,7 +81,7 @@ git clone https://github.com/rishabhthakur11/Tradewise
 npm install
 ```
 
-3. Build Nextjs project 
+3. Build Nextjs project
 
 ```sh
 npm run dev
@@ -90,31 +90,34 @@ npm run dev
 <!-- USAGE EXAMPLES -->
 
 ## Features
+
 > 1.User Authentication and Authorization
-- [X] User registration 
+
+- [x] User registration
 - [x] Login (Email & Password | Google Oauth)
-- [X] Forget Password (Email OTP based password generation)
+- [x] Forget Password (Email OTP based password generation)
 
 > 2.User Details
-- [X] Basic Details (Name, email, Phone number,userId etc.)
-- [X] Change Password functionality
-- [X] User wallet balance (Deposite money in wallet and see the current wallet status with transaction history)
+
+- [x] Basic Details (Name, email, Phone number,userId etc.)
+- [x] Change Password functionality
+- [x] User wallet balance (Deposite money in wallet and see the current wallet status with transaction history)
 
 > 3. Dashboard
-- [X] Can see the stocks 
-- [X] Add the stocks to wishlist
-- [X] User can see the particular stock
-- [X] User can place the order - Limit order and market order (BUY :+1: | SELL :-1:)
-- [X] User can see the status of the order 
-- [X] User can see all his | her transactions
-- [X] User can see his ```Portfolio```
-     - Stocks with quantity
-     - Invested amount
-     - Total returns
+
+- [x] Can see the stocks
+- [x] Add the stocks to wishlist
+- [x] User can see the particular stock
+- [x] User can place the order - Limit order and market order (BUY :+1: | SELL :-1:)
+- [x] User can see the status of the order
+- [x] User can see all his | her transactions
+- [x] User can see his `Portfolio`
+  - Stocks with quantity
+  - Invested amount
+  - Total returns
 
 ## Demo Video
-> [ !NOTE ]
-> Coming Soon 
+> Coming Soon :exclamation:
 
 <!-- ROADMAP -->
 
@@ -141,4 +144,3 @@ Contributions are what make the open source community such an amazing place to b
 <!-- <Names> -->
 
 Rishabh Thakur - [GitHub](https://github.com/rishabhthakur11) - rishabhthakur046@gmail.com
-
