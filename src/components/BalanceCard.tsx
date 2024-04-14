@@ -10,7 +10,7 @@ import { useAuth } from "@/store/authContext";
 import Link from "next/link";
 
 export default function BalanceCard() {
-  const { authState } = useAuth();
+  const { authState, balance } = useAuth();
   return (
     <HoverCard>
       <HoverCardTrigger asChild>
@@ -26,7 +26,7 @@ export default function BalanceCard() {
             </h4>
             <p className="text-sm mt-3">
               <span className="text-lg font-normal">
-                {formatPrice(Number(authState.user?.balance))}
+                {formatPrice(Number(balance))}
               </span>
             </p>
             <Link href="/profile/user/balance">

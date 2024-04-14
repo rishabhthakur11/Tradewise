@@ -39,7 +39,7 @@ function WatchList() {
       <div className="flex items-center justify-between">
         <p className="text-slate-500 text-lg font-[500]">All WatchList</p>
         <Link className="text-themeBlue" href="#">
-          view all
+          View all
         </Link>
       </div>
       <div className="mt-5">

@@ -31,7 +31,7 @@ async function Stocks() {
           Most Bought on Tradewise
         </p>
         <Link className="text-sky-700" href="#">
-          All Stocks
+          All stocks
         </Link>
       </div>
       <div className="flex flex-wrap mt-5 justify-between">

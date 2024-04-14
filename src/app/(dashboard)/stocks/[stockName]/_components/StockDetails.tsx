@@ -65,8 +65,32 @@ async function StockDetails({ stockName }: Stock) {
       <div className="bg-white rounded-xl overflow-hidden border  min-h-[350px] max-h-[350px] cursor-pointer w-full h-full hover:shadow delay-300 mb-5 flex items-center justify-center mt-2">
         <h1 className="text-lg font-normal text-textGray">Charts in future</h1>
       </div>
-      <div className="mt-20">
+      <div className="mt-16">
         <h1 className="text-lg font-semibold text-textGray ">Fundamentals</h1>
+        <div>
+          <div className="flex justify-between mt-5">
+            <p className="text-textGray">Symbol</p>
+            <p className="text-textGray">{stock.symbol}</p>
+          </div>
+          <div className="flex justify-between mt-5">
+            <p className="text-textGray">Price</p>
+            <p className="text-textGray">{stock.price}</p>
+          </div>
+          <div className="flex justify-between mt-5">
+            <p className="text-textGray">Total Quantity</p>
+            <p className="text-textGray">{stock.quantity}</p>
+          </div>
+          <div className="flex justify-between mt-5">
+            <p className="text-textGray">Returns</p>
+            <p
+              className={`${
+                changeType == "positive" ? "text-[#0CB387]" : "text-[#EB5B3C]"
+              }`}
+            >
+              {roundedChange} ({roundedPercentageChange} %)
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );

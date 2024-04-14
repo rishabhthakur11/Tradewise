@@ -21,6 +21,8 @@ import { z } from "zod";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import toast from "react-hot-toast";
+import { addUserBalance } from "@/http";
+import APIResponseType from "@/utils/interfaces/response";
 
 const formSchema = z.object({
   amount: z.coerce.number().positive({
@@ -28,7 +30,15 @@ const formSchema = z.object({
   }),
 });
 
-export function AddMoney() {
+export function AddMoney({
+  id,
+  balance,
+  setBalance,
+}: {
+  id: string;
+  balance: number;
+  setBalance: (balance: number) => void;
+}) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -44,13 +54,20 @@ export function AddMoney() {
         throw new Error("Amount must be a valid positive number.");
       }
 
-      console.log("Money Added");
-      console.log(typeof values.amount);
-      toast.success("Money Added");
-      // form to default values
-      form.reset();
+      // Call the deposit api
+      const res = await addUserBalance({ _id: id, amount });
+      const { success }: APIResponseType = res;
+      if (success) {
+        toast.success(res.message);
+        // Notify parent component about the updated balance
+        setBalance(res.data.balance);
+      } else {
+        toast.error(res.message);
+      }
     } catch {
       toast.error("Something went wrong");
+    } finally {
+      form.reset();
     }
   };
   return (

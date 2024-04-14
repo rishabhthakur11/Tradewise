@@ -59,7 +59,7 @@ function Navbar({}: Props) {
                 )}
                 href="/stocks/user/investments"
               >
-                investments
+                Investments
               </Link>
             </div>
           ) : null}

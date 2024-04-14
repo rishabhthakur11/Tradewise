@@ -22,8 +22,8 @@ function UserCard({}: Props) {
           />
           <div>
             <h1 className="text-lg font-normal text-center mt-6">
-              {authState.user?.first_name.toUpperCase() + " "}
-              {authState.user?.last_name.toUpperCase()}
+              {authState.user?.first_name + " "}
+              {authState.user?.last_name}
             </h1>
           </div>
         </div>

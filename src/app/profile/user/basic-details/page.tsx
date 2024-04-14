@@ -19,9 +19,7 @@ function BasicDetails({}: Props) {
           <div className="gap-y-3 flex flex-col">
             <p className="text-slate-500 text-md">Name</p>
             <p className="text-lg border-b-2 text-lg">
-              {authState.user?.first_name.toUpperCase() +
-                " " +
-                authState.user?.last_name.toUpperCase()}
+              {authState.user?.first_name + " " + authState.user?.last_name}
             </p>
           </div>
           <div className="gap-y-3 flex flex-col">

@@ -9,8 +9,8 @@ function UserInvestments({}: Props) {
     <div>
       <div className="flex items-center justify-between">
         <p className="text-slate-500 text-lg font-[500]">Your Investments</p>
-        <Link className="text-themeBlue" href="#">
-          dashboard
+        <Link className="text-themeBlue" href="/stocks/user/investments">
+          Dashboard
         </Link>
       </div>
       <div className="flex items-center justify-between mt-5">

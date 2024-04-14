@@ -52,6 +52,8 @@ export const getIndividualStock = (stockId: string) => api.get(`/stocks/${stockI
 
 // USER 
 export const changeUserPassword = (data: { _id: string, password: string, newPassword: string }) => api.put<APIResponseType, APIResponseType>("user/profile/updatePassword", data);
+export const addUserBalance = (data: { _id: string, amount: number }) => api.put<APIResponseType, APIResponseType>("user/profile/balance/add", data);
+export const getUserBalance = (data: { _id: string }) => api.post<APIResponseType, APIResponseType>("user/profile/getUserBalance", data);
 
 
 

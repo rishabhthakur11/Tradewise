@@ -5,17 +5,19 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 
 interface AuthPayloadType {
   isAuthenticated: boolean;
-  user: UserType | null;
+  user: UserType;
 }
 
 interface AuthContextType {
   authState: AuthPayloadType;
   setAuthenticatedState: (authState: AuthPayloadType) => void;
+  balance: number;
+  setBalance: (balance: number) => void;
 }
 
 const initialAuthState: AuthPayloadType = {
   isAuthenticated: false,
-  user: null,
+  user: {} as UserType,
 };
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -30,6 +32,7 @@ export const useAuth = () => {
 
 export const AuthProvider = ({ children }: any) => {
   const [authState, setAuthState] = useState<AuthPayloadType>(initialAuthState);
+  const [balance, setBalance] = useState<number>(authState.user.balance);
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -54,6 +57,7 @@ export const AuthProvider = ({ children }: any) => {
               isAuthenticated: true,
               user: res.data,
             });
+            setBalance(res.data.balance);
           }
         } catch (err) {
           console.log(err);
@@ -68,7 +72,9 @@ export const AuthProvider = ({ children }: any) => {
   };
 
   return (
-    <AuthContext.Provider value={{ setAuthenticatedState, authState }}>
+    <AuthContext.Provider
+      value={{ setAuthenticatedState, authState, balance, setBalance }}
+    >
       {children}
     </AuthContext.Provider>
   );

@@ -4,13 +4,14 @@ import { formatPrice } from "@/lib/format";
 import { useAuth } from "@/store/authContext";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { AddMoney } from "../_components/AddMoney";
+import { getUserBalance } from "@/http";
 
 type Props = {};
 
 function Balance({}: Props) {
-  const { authState } = useAuth();
+  const { authState, balance, setBalance } = useAuth();
   return (
     <div className="flex gap-x-10">
       <div className="w-1/2">
@@ -18,7 +19,7 @@ function Balance({}: Props) {
           <div className="px-4 py-8">
             <p className="text-xs text-textGray">For stocks F&O</p>
             <h1 className="mt-3 text-2xl">
-              {formatPrice(Number(authState.user?.balance))}
+              {balance !== null ? formatPrice(balance) : "Loading..."}
             </h1>
           </div>
           <Separator className="" />
@@ -35,7 +36,12 @@ function Balance({}: Props) {
         </div>
       </div>
       <div className="w-1/2">
-        <AddMoney />
+        <AddMoney
+          id={authState.user._id}
+          // onBalanceUpdate={handleBalanceUpdate}
+          balance={balance}
+          setBalance={setBalance}
+        />
       </div>
     </div>
   );

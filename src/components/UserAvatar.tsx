@@ -19,6 +19,7 @@ import { userlogout } from "@/http";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import APIResponseType from "@/utils/interfaces/response";
+import UserType from "@/utils/interfaces/userType";
 
 export default function UserAvatar() {
   const { authState, setAuthenticatedState } = useAuth();
@@ -32,7 +33,7 @@ export default function UserAvatar() {
       if (success) {
         setAuthenticatedState({
           isAuthenticated: false,
-          user: null,
+          user: {} as UserType,
         });
         toast.success("Logged out successfully");
         router.push("/");
