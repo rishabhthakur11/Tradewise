@@ -1,36 +1,144 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<!-- PROJECT LOGO -->
+<p align="center">
+  <a href="https://tradewisee.vercel.app">
+    <img src="/public/logo/logo_transparent.png" alt="Logo" width="150" height="150">
+  </a>
+  <p align="center">
+   All things finance, right here
+    <br />
+    <br />
+    ·
+    <a href="https://github.com/rishabhthakur11/Tradewise/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/rishabhthakur11/Tradewise/issues">Request Feature</a>
+    ·
+    <br />
+  </p>
+</p>
+
+<!-- TABLE OF CONTENTS -->
+
+## Table of Contents
+
+- [About the Project](#about-the-project)
+  - [Built With](#built-with)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Referenced Repositories](#referenced-repositories)
+  - [Installation](#installation)
+- [Features](#features)
+- [Roadmap](#roadmap)
+- [Contributing](#contributing)
+- [Contact](#contact)
+
+<!-- ABOUT THE PROJECT -->
+
+## About The Project
+
+<!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
+
+<p align ="center">
+
+<img src = "/public/screenshots/image 6.png" height="300" width = "500" >
+
+Welcome to our Stock Trading Application! This platform provides users with the ability to buy and sell stocks, manage their portfolios, and view transaction histories seamlessly. Users can authenticate via Google authentication or an OTP-based system for secure access. The application supports both limit and market orders, ensuring flexibility in trading strategies. Built with `Next.js` for the frontend, `Node.js` for the backend, and `MongoDB` for the database, our platform offers a reliable and efficient trading experience.
+
+### Built With
+
+<p style="display: flex; gap: 30px; align-items: center;">
+
+<img alt="Node.js" src="https://brandslogos.com/wp-content/uploads/images/large/nodejs-logo.png" width="80" height="40"/>
+
+<img alt="express" src="https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png" width="70" height="40" />
+<img alt="Next.js" src="https://static-00.iconduck.com/assets.00/nextjs-icon-2048x1234-pqycciiu.png" width="80" height="50"/>
+
+<img alt="React" src="https://cdn.icon-icons.com/icons2/2699/PNG/512/mongodb_logo_icon_170944.png" width="80" height="50"/>
+
+</p>
+<!-- GETTING STARTED -->
 
 ## Getting Started
 
-First, run the development server:
+To get a local copy up and for running the project locally, follow these simple steps.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### Prerequisites
+
+Install [Node.js](https://nodejs.org/en) 18.17 or later.
+
+[Install npm](https://www.npmjs.com/get-npm)
+
+### Installation
+
+1. Clone the repo
+
+```sh
+git clone https://github.com/rishabhthakur11/Tradewise
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install node modules | packages
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sh
+npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+3. Build Nextjs project 
 
-## Learn More
+```sh
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+<!-- USAGE EXAMPLES -->
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Features
+> 1.User Authentication and Authorization
+- [X] User registration 
+- [x] Login (Email & Password | Google Oauth)
+- [X] Forget Password (Email OTP based password generation)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+> 2.User Details
+- [X] Basic Details (Name, email, Phone number,userId etc.)
+- [X] Change Password functionality
+- [X] User wallet balance (Deposite money in wallet and see the current wallet status with transaction history)
 
-## Deploy on Vercel
+> 3. Dashboard
+- [X] Can see the stocks 
+- [X] Add the stocks to wishlist
+- [X] User can see the particular stock
+- [X] User can place the order - Limit order and market order (BUY :+1: | SELL :-1:)
+- [X] User can see the status of the order 
+- [X] User can see all his | her transactions
+- [X] User can see his ```Portfolio```
+     - Stocks with quantity
+     - Invested amount
+     - Total returns
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Demo Video
+> [ !NOTE ]
+> Coming Soon 
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<!-- ROADMAP -->
+
+## Roadmap
+
+See the [open issues](https://github.com/rishabhthakur11/Tradewise/issues) for a list of proposed features (and known issues).
+
+<!-- CONTRIBUTING -->
+
+## Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+<!-- CONTACT -->
+
+## Contact
+
+<!-- <Names> -->
+
+Rishabh Thakur - [GitHub](https://github.com/rishabhthakur11) - rishabhthakur046@gmail.com
+
