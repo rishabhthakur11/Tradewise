@@ -94,20 +94,20 @@ npm run dev
 > 1.User Authentication and Authorization
 
 - [x] User registration
-- [x] Login (Email & Password | Google Oauth)
+- [x] Login (Email & Password | Google OAuth)
 - [x] Forget Password (Email OTP based password generation)
 
 > 2.User Details
 
 - [x] Basic Details (Name, email, Phone number,userId etc.)
 - [x] Change Password functionality
-- [x] User wallet balance (Deposite money in wallet and see the current wallet status with transaction history)
+- [x] User wallet balance (Deposit money in wallet and see the current wallet status with transaction history)
 - [ ] User can edit his | her basic details.
 
 > 3.Dashboard
 
 - [x] Can see the stocks
-- [ ] Add the stocks to wishlist
+- [ ] Add the stocks to watchlist
 - [x] User can see the particular stock
 - [ ] User can place the order - Limit order and market order (BUY :+1: | SELL :-1:)
 - [ ] User can see the status of the order
