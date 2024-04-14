@@ -45,7 +45,7 @@ Welcome to our Stock Trading Application! This platform provides users with the 
 
 ### Built With
 
-<p style="display: flex; gap: 30px; align-items: center;background-color:#F8F7F4;">
+<div style="display: flex; gap: 30px; align-items: center;background-color:#F8F7F4;">
 
 <img alt="Node.js" src="https://brandslogos.com/wp-content/uploads/images/large/nodejs-logo.png" width="80" height="40"/>
 
@@ -54,7 +54,7 @@ Welcome to our Stock Trading Application! This platform provides users with the 
 
 <img alt="React" src="https://cdn.icon-icons.com/icons2/2699/PNG/512/mongodb_logo_icon_170944.png" width="80" height="50"/>
 
-</p>
+</div>
 <!-- GETTING STARTED -->
 
 ## Getting Started
@@ -102,16 +102,17 @@ npm run dev
 - [x] Basic Details (Name, email, Phone number,userId etc.)
 - [x] Change Password functionality
 - [x] User wallet balance (Deposite money in wallet and see the current wallet status with transaction history)
+- [ ] User can edit his | her basic details.
 
-> 3. Dashboard
+> 3.Dashboard
 
 - [x] Can see the stocks
-- [x] Add the stocks to wishlist
+- [ ] Add the stocks to wishlist
 - [x] User can see the particular stock
-- [x] User can place the order - Limit order and market order (BUY :+1: | SELL :-1:)
-- [x] User can see the status of the order
-- [x] User can see all his | her transactions
-- [x] User can see his `Portfolio`
+- [ ] User can place the order - Limit order and market order (BUY :+1: | SELL :-1:)
+- [ ] User can see the status of the order
+- [ ] User can see all his | her transactions
+- [ ] User can see his `Portfolio`
   - Stocks with quantity
   - Invested amount
   - Total returns
