@@ -53,15 +53,15 @@ function Login() {
       const { success }: APIResponseType = res;
 
       if (success) {
-        toast.success("Login successfully");
+        toast.success(res.message);
         // set the user in context
         setAuthenticatedState({
           isAuthenticated: true,
           user: res.data,
         });
-        router.push("/stocks/user/explore");
+        router.replace("/stocks/user/explore");
       } else {
-        toast.error(res.message || "Invalid credentials");
+        toast.error(res.message);
       }
     } catch {
       toast.error("Something went wrong");
@@ -72,7 +72,7 @@ function Login() {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
           <Link href="/">
-            <div className="flex items-center gap-x-2">
+            <div className="flex items-center">
               <Image
                 src={logo}
                 width={50}
@@ -115,11 +115,9 @@ function Login() {
 
           <Button type="submit">Log In</Button>
           <p className="flex items-center justify-center text-gray-600">
-            <span className="flex-1 border-t border-gray-300 mr-2"></span>{" "}
-            {/* Horizontal line on the left */}
+            <span className="flex-1 border-t border-gray-300 mr-2"></span>
             <span>OR</span>
-            <span className="flex-1 border-t border-gray-300 ml-2"></span>{" "}
-            {/* Horizontal line on the right */}
+            <span className="flex-1 border-t border-gray-300 ml-2"></span>
           </p>
         </form>
       </Form>

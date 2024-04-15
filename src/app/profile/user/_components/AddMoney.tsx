@@ -23,6 +23,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import toast from "react-hot-toast";
 import { addUserBalance } from "@/http";
 import APIResponseType from "@/utils/interfaces/response";
+import { Badge } from "@/components/ui/badge";
 
 const formSchema = z.object({
   amount: z.coerce.number().positive({
@@ -70,6 +71,15 @@ export function AddMoney({
       form.reset();
     }
   };
+  const handleBadgeClick = (amountToAdd: number) => {
+    const currentAmount = form.getValues("amount");
+
+    if (!isNaN(currentAmount)) {
+      const newAmount = currentAmount + amountToAdd;
+
+      form.setValue("amount", newAmount);
+    }
+  };
   return (
     <Tabs defaultValue="deposit" className="w-[400px]">
       <TabsList className="grid w-full grid-cols-2">
@@ -79,7 +89,7 @@ export function AddMoney({
       <TabsContent value="deposit">
         <Card>
           <CardHeader>
-            <CardTitle>Add Money</CardTitle>
+            <CardTitle>Deposit Money</CardTitle>
             <CardDescription>
               Add money to your wallet using any UPI app.
             </CardDescription>
@@ -103,8 +113,21 @@ export function AddMoney({
                           {...field}
                         />
                       </FormControl>
-                      <FormDescription className="flex justify-start">
-                        Enter valid amount
+                      <FormDescription className="flex justify-start items-center gap-x-5">
+                        <Badge
+                          variant="secondary"
+                          className="my-5 cursor-pointer"
+                          onClick={() => handleBadgeClick(100)}
+                        >
+                          + 100
+                        </Badge>
+                        <Badge
+                          variant="secondary"
+                          className="my-5 cursor-pointer"
+                          onClick={() => handleBadgeClick(500)}
+                        >
+                          + 500
+                        </Badge>
                       </FormDescription>
                       <FormMessage />
                     </FormItem>

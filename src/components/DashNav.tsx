@@ -19,7 +19,7 @@ function DashNavbar({}: Props) {
   return (
     <div>
       <Navbar />
-      <div className="flex gap-x-10 mt-10">
+      <div className="flex gap-x-10 mt-6">
         <Link
           className={cn(
             "text-slate-500 text-lg font-[500]",

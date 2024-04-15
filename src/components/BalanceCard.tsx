@@ -10,7 +10,7 @@ import { useAuth } from "@/store/authContext";
 import Link from "next/link";
 
 export default function BalanceCard() {
-  const { authState, balance } = useAuth();
+  const { balance } = useAuth();
   return (
     <HoverCard>
       <HoverCardTrigger asChild>
@@ -31,7 +31,11 @@ export default function BalanceCard() {
             </p>
             <Link href="/profile/user/balance">
               <div className="flex items-center pt-2 mt-6">
-                <Banknote size={15} className="mr-2 h-4 w-4 opacity-70" />{" "}
+                <Banknote
+                  strokeWidth={1}
+                  size={22}
+                  className="text-slate-500 mr-2"
+                />{" "}
                 <span className="text-sm text-muted-foreground">
                   Add Balance
                 </span>

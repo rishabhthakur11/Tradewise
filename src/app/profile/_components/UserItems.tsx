@@ -33,6 +33,7 @@ function UserItems({ icon: Icon, label, href }: Props) {
     >
       <div className="flex items-center gap-x-2 py-4">
         <Icon
+          strokeWidth={1}
           size={20}
           className={cn("text-slate-500", active && "text-sky-700")}
         />

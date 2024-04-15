@@ -2,7 +2,7 @@
 import { Separator } from "@/components/ui/separator";
 import { formatPrice } from "@/lib/format";
 import { useAuth } from "@/store/authContext";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ReceiptIndianRupee } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { AddMoney } from "../_components/AddMoney";
@@ -26,8 +26,9 @@ function Balance({}: Props) {
           <div className="py-4 px-4">
             <Link href="/profile/user/balance">
               <div className="flex items-center pt-2 flex items-center justify-between">
-                <span className="text-sm text-muted-foreground">
-                  All Transaction
+                <span className="text-sm text-muted-foreground flex items-center">
+                  <ReceiptIndianRupee strokeWidth={1} size={20} className="text-muted-foreground mr-2"/>
+                  All Transactions
                 </span>
                 <ArrowRight size={20} className="text-muted-foreground" />
               </div>

@@ -12,7 +12,7 @@ const BannerSection = (props: Props) => {
       <div className="mx-auto flex px-5  md:flex-row flex-col items-center max-w-6xl mx-auto">
         <div className="lg:flex-grow md:w-1/2  md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
           <h1 className="xl:text-[40px] text-4xl leading-[62px]  mb-4 font-extralight text-gray-900">
-            What are you waiting for{" "}
+            What are you waiting for ?{" "}
             <span className="font-bold">
               Let’s start trading with TradeWise
             </span>

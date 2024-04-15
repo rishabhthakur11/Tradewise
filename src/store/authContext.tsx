@@ -1,6 +1,7 @@
 "use client";
 import { userRefreshLogin } from "@/http";
 import UserType from "@/utils/interfaces/userType";
+import { set } from "date-fns";
 import React, { createContext, useContext, useEffect, useState } from "react";
 
 interface AuthPayloadType {
@@ -69,6 +70,7 @@ export const AuthProvider = ({ children }: any) => {
 
   const setAuthenticatedState = (authState: AuthPayloadType) => {
     setAuthState(authState);
+    setBalance(authState.user.balance);
   };
 
   return (

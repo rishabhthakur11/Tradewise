@@ -58,7 +58,7 @@ function ForgetPassword() {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <Link href="/">
-            <div className="flex items-center gap-x-2">
+            <div className="flex items-center">
               <Image
                 src={logo}
                 width={50}
@@ -84,7 +84,7 @@ function ForgetPassword() {
           />
           <Button type="submit">
             <Mail className="mr-2 h-4 w-4" />
-            Send Email
+            Send OTP
           </Button>
         </form>
       </Form>

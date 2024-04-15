@@ -1,6 +1,8 @@
 import Link from "next/link";
 import React from "react";
 import WatchListItems from "./WatchListItems";
+import { Button } from "@/components/ui/button";
+import { BookmarkPlus } from "lucide-react";
 
 interface StockItem {
   id: number;
@@ -44,6 +46,20 @@ function WatchList() {
       </div>
       <div className="mt-5">
         <WatchListItems watchList={watchList} />
+      </div>
+      <div className="mt-5">
+        <Button
+          variant="outline"
+          size="sm"
+          className="w-full text-sky-700 flex"
+        >
+          <BookmarkPlus
+            strokeWidth={1}
+            size={22}
+            className="text-slate-500 mr-2"
+          />
+          create new wishlist
+        </Button>
       </div>
     </div>
   );

@@ -16,6 +16,8 @@ type Props = {};
 
 function Navbar({}: Props) {
   const pathname = usePathname();
+  const valid =
+    pathname.startsWith("/stocks") || pathname.startsWith("/profile");
   const isExplore =
     pathname === "/stocks/user/explore" ||
     pathname === "/mutual-fund/user/explore";
@@ -27,7 +29,7 @@ function Navbar({}: Props) {
   return (
     <div className="flex py-5 items-center">
       {/* leftSide */}
-      <div className="flex gap-x-16 text-black  items-center grow">
+      <div className="flex gap-x-16 text-black  items-center grow px-3 md:px-0">
         <div className="flex gap-x-5 text-black  items-center">
           <Link href="/">
             <div className="flex items-center gap-x-2">
@@ -41,7 +43,7 @@ function Navbar({}: Props) {
               <p className="text-xl font-bold curser-pointer">Tradewise</p>
             </div>
           </Link>
-          {authState.isAuthenticated ? (
+          {authState.isAuthenticated || isExplore || isInvestment ? (
             <div className="flex gap-x-5 text-black  items-center">
               <Link
                 className={cn(
@@ -72,8 +74,8 @@ function Navbar({}: Props) {
       </div>
 
       <div>
-        <div className="hidden lg:flex gap-x-6 text-lg text-black font-normal items-center">
-          {authState.isAuthenticated ? (
+        <div className="flex gap-x-6 text-lg text-black font-normal items-center px-3 md:px-3">
+          {authState.isAuthenticated || isExplore || isInvestment || valid ? (
             <div className="hidden lg:flex gap-x-8 text-lg text-black font-normal items-center">
               <Bell strokeWidth={1} size={22} className="text-slate-500" />
               <BalanceCard />

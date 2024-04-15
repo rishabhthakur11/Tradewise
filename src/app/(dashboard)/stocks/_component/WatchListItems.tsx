@@ -6,7 +6,7 @@ import {
 } from "@/components/ui/collapsible";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
-import { BadgePlus, ChevronsUpDown } from "lucide-react";
+import { ChevronsUpDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import React from "react";
 import StockItem from "./StockItem";
@@ -60,16 +60,6 @@ function WatchListItems({ watchList }: Props) {
           </div>
         </ScrollArea>
       </Collapsible>
-      <div className="mt-5">
-        <Button
-          variant="outline"
-          size="sm"
-          className="w-full text-sky-700 flex"
-        >
-          <BadgePlus size={25} className="mr-2" />
-          create new wishlist
-        </Button>
-      </div>
     </div>
   );
 }
