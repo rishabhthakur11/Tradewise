@@ -107,12 +107,12 @@ npm run dev
 > 3.Dashboard
 
 - [x] Can see the stocks
-- [ ] Add the stocks to watchlist
+- [ ] Add the stocks to the watchlist
 - [x] User can see the particular stock
-- [ ] User can place the order - Limit order and market order (BUY :+1: | SELL :-1:)
+- [x] User can place the order - Limit order and market order (BUY :+1: | SELL :-1:)
 - [ ] User can see the status of the order
 - [ ] User can see all his | her transactions
-- [ ] User can see his `Portfolio`
+- [x] User can see his `Portfolio`
   - Stocks with quantity
   - Invested amount
   - Total returns
