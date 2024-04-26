@@ -24,7 +24,7 @@ export default function GoogleAuth() {
   return (
     <div>
       <Button onClick={handleLogin}>
-        <Google className="mr-2 h-4 w-4" /> Login with Google
+        <Google fontSize="small" className="mr-2" /> Login with Google
       </Button>
     </div>
   );

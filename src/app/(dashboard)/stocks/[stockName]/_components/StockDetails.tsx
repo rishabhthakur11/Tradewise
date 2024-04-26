@@ -12,12 +12,12 @@ type Stock = {
 async function StockDetails({ stockName }: Stock) {
   const stock = await getIndividualStocksData(stockName);
   let changeType: string;
-  if (stock.lastPrice > stock.price) changeType = "negative";
-  else changeType = "positive";
+  if (stock.lastPrice >= stock.price) changeType = "positive";
+  else changeType = "negative";
 
   const percentageChange =
-    ((stock.price - stock.lastPrice) / stock.lastPrice) * 100;
-  const change = stock.price - stock.lastPrice;
+    ((stock.lastPrice - stock.price) / stock.price) * 100;
+  const change = stock.lastPrice - stock.price;
   // round to 2 decimal places
   const roundedPercentageChange = Math.round(percentageChange * 100) / 100;
   const roundedChange = Math.round(change * 100) / 100;
@@ -51,7 +51,7 @@ async function StockDetails({ stockName }: Stock) {
               changeType == "positive" ? "text-[#0CB387]" : "text-[#EB5B3C]"
             } text-2xl font-normal`}
           >
-            {formatPrice(stock.price)}
+            {formatPrice(stock.lastPrice)}
           </p>
           <p
             className={`${
@@ -74,7 +74,7 @@ async function StockDetails({ stockName }: Stock) {
           </div>
           <div className="flex justify-between mt-5">
             <p className="text-textGray">Price</p>
-            <p className="text-textGray">{stock.price}</p>
+            <p className="text-textGray">{stock.lastPrice}</p>
           </div>
           <div className="flex justify-between mt-5">
             <p className="text-textGray">Total Quantity</p>

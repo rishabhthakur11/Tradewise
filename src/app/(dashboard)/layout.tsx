@@ -1,3 +1,4 @@
+export const revalidate = 10;
 import DashNavbar from "@/components/DashNav";
 
 export default function RootLayout({

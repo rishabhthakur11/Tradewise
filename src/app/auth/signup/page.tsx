@@ -30,6 +30,7 @@ import { cn } from "@/lib/utils";
 import { userRegister } from "@/http";
 import { useAuth } from "@/store/authContext";
 import APIResponseType from "@/utils/interfaces/response";
+import { AppRegistrationRounded } from "@mui/icons-material";
 
 const formSchema = z.object({
   first_name: z.string().min(2, {
@@ -230,7 +231,9 @@ function Signup() {
               )}
             />
           </div>
-          <Button type="submit">Create account</Button>
+          <Button type="submit">
+            <AppRegistrationRounded className="mr-2 h-4 w-4" />
+            Create account</Button>
         </form>
       </Form>
       <div className="text-sm font-medium text-textGray mt-10">

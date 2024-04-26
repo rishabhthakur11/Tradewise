@@ -67,7 +67,7 @@ export default function UserAvatar() {
             />
             <div>
               <h1 className="text-md font-normal">
-                {authState.user?.first_name}
+                {authState.user?.first_name + " "}
                 {authState.user?.last_name}
               </h1>
               <p className="text-sm font-normal text-textGray">

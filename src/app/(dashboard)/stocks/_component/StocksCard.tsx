@@ -21,11 +21,11 @@ function StocksCard({
   lastPrice,
 }: Props) {
   let changeType: string;
-  if (lastPrice > price) changeType = "negative";
-  else changeType = "positive";
+  if (lastPrice >= price) changeType = "positive";
+  else changeType = "negative";
 
-  const percentageChange = ((price - lastPrice) / lastPrice) * 100;
-  const change = price - lastPrice;
+  const percentageChange = ((lastPrice - price) / price) * 100;
+  const change = lastPrice - price;
   // round to 2 decimal places
   const roundedPercentageChange = Math.round(percentageChange * 100) / 100;
   const roundedChange = Math.round(change * 100) / 100;
@@ -50,7 +50,7 @@ function StocksCard({
                 changeType == "positive" ? "text-[#0CB387]" : "text-[#EB5B3C]"
               } text-md`}
             >
-              {formatPrice(price)}
+              {formatPrice(lastPrice)}
             </p>
             <p
               className={`${

@@ -8,9 +8,20 @@ import {
 import { formatPrice } from "@/lib/format";
 import { useAuth } from "@/store/authContext";
 import Link from "next/link";
+import { useEffect } from "react";
+import { getUserBalance } from "@/http";
 
 export default function BalanceCard() {
-  const { balance } = useAuth();
+  const { balance, setBalance, authState } = useAuth();
+
+  useEffect(() => {
+    const fetchUserBalance = async () => {
+      const res = await getUserBalance({ _id: authState.user._id });
+      setBalance(res.data.balance);
+    };
+    fetchUserBalance();
+  }, []);
+
   return (
     <HoverCard>
       <HoverCardTrigger asChild>

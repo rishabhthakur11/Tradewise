@@ -23,6 +23,7 @@ import GoogleAuth from "@/components/socialAuthButtons/GoogleAuth";
 import { userlogin } from "@/http";
 import { useAuth } from "@/store/authContext";
 import APIResponseType from "@/utils/interfaces/response";
+import { LogIn } from "lucide-react";
 
 const formSchema = z.object({
   email: z.string().email({
@@ -113,7 +114,10 @@ function Login() {
             )}
           />
 
-          <Button type="submit">Log In</Button>
+          <Button type="submit" className="w-1/4">
+            <LogIn className="mr-2 h-4 w-4" />
+            Log In
+          </Button>
           <p className="flex items-center justify-center text-gray-600">
             <span className="flex-1 border-t border-gray-300 mr-2"></span>
             <span>OR</span>

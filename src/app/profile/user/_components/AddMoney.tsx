@@ -113,26 +113,26 @@ export function AddMoney({
                           {...field}
                         />
                       </FormControl>
-                      <FormDescription className="flex justify-start items-center gap-x-5">
-                        <Badge
-                          variant="secondary"
-                          className="my-5 cursor-pointer"
-                          onClick={() => handleBadgeClick(100)}
-                        >
-                          + 100
-                        </Badge>
-                        <Badge
-                          variant="secondary"
-                          className="my-5 cursor-pointer"
-                          onClick={() => handleBadgeClick(500)}
-                        >
-                          + 500
-                        </Badge>
-                      </FormDescription>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
+                <div className="flex justify-start items-center gap-x-5">
+                  <Badge
+                    variant="secondary"
+                    className="my-5 cursor-pointer"
+                    onClick={() => handleBadgeClick(100)}
+                  >
+                    + 100
+                  </Badge>
+                  <Badge
+                    variant="secondary"
+                    className="my-5 cursor-pointer"
+                    onClick={() => handleBadgeClick(500)}
+                  >
+                    + 500
+                  </Badge>
+                </div>
                 <Button type="submit">Deposit Money</Button>
               </form>
             </Form>

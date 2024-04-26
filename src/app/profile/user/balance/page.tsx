@@ -4,7 +4,7 @@ import { formatPrice } from "@/lib/format";
 import { useAuth } from "@/store/authContext";
 import { ArrowRight, ReceiptIndianRupee } from "lucide-react";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { AddMoney } from "../_components/AddMoney";
 import { getUserBalance } from "@/http";
 
@@ -12,6 +12,14 @@ type Props = {};
 
 function Balance({}: Props) {
   const { authState, balance, setBalance } = useAuth();
+  useEffect(() => {
+    const fetchUserBalance = async () => {
+      const res = await getUserBalance({ _id: authState.user._id });
+      setBalance(res.data.balance);
+    };
+    fetchUserBalance();
+  }, [balance, setBalance]);
+
   return (
     <div className="flex gap-x-10">
       <div className="w-1/2">
@@ -27,7 +35,11 @@ function Balance({}: Props) {
             <Link href="/profile/user/balance">
               <div className="flex items-center pt-2 flex items-center justify-between">
                 <span className="text-sm text-muted-foreground flex items-center">
-                  <ReceiptIndianRupee strokeWidth={1} size={20} className="text-muted-foreground mr-2"/>
+                  <ReceiptIndianRupee
+                    strokeWidth={1}
+                    size={20}
+                    className="text-muted-foreground mr-2"
+                  />
                   All Transactions
                 </span>
                 <ArrowRight size={20} className="text-muted-foreground" />

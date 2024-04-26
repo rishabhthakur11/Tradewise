@@ -1,3 +1,4 @@
+
 import APIResponseType from "@/utils/interfaces/response";
 import axios, { AxiosRequestConfig } from "axios";
 
@@ -12,13 +13,13 @@ api.defaults.headers.delete['Content-Type'] = 'application/json';
 api.defaults.headers.patch['Content-Type'] = 'application/json';
 api.defaults.headers.get['Content-Type'] = 'application/json';
 
-api.interceptors.request.use((config: any) => {
-  console.log("Request URL:", config.url);
-  console.log("Request Method:", config.method);
-  console.log("Request Headers:", config.headers);
-  console.log("Request Data:", config.data);
-  return config;
-});
+// api.interceptors.request.use((config: any) => {
+//   console.log("Request URL:", config.url);
+//   console.log("Request Method:", config.method);
+//   console.log("Request Headers:", config.headers);
+//   console.log("Request Data:", config.data);
+//   return config;
+// });
 
 //interface for userLogin
 interface LoginObjectType {
@@ -55,6 +56,14 @@ export const changeUserPassword = (data: { _id: string, password: string, newPas
 export const addUserBalance = (data: { _id: string, amount: number }) => api.put<APIResponseType, APIResponseType>("user/profile/balance/add", data);
 export const getUserBalance = (data: { _id: string }) => api.post<APIResponseType, APIResponseType>("user/profile/getUserBalance", data);
 
+
+// Order 
+export const placeOrder = (data: { userID: string, symbol: string, orderType: string, transactionType: string, quantity: number, price: number }) => api.post<APIResponseType, APIResponseType>("/orders/placeOrder", data);
+
+
+// Investment
+export const getUserInvestments = (data: { userId: string }) => api.post<APIResponseType, APIResponseType>("/transactions/user/investment", data);
+export const getUserPortfolio = (data: { userID: string }) => api.post<APIResponseType, APIResponseType>("/user/profile/portfolio", data);
 
 
 

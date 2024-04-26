@@ -75,10 +75,12 @@ function Navbar({}: Props) {
 
       <div>
         <div className="flex gap-x-6 text-lg text-black font-normal items-center px-3 md:px-3">
-          {authState.isAuthenticated || isExplore || isInvestment || valid ? (
+          {authState.isAuthenticated || (isExplore || isInvestment || valid) ? (
             <div className="hidden lg:flex gap-x-8 text-lg text-black font-normal items-center">
               <Bell strokeWidth={1} size={22} className="text-slate-500" />
-              <BalanceCard />
+              <Link href="/profile/user/balance">
+                <Wallet strokeWidth={1} size={22} className="text-slate-500" />
+              </Link>
               <ShoppingCart
                 strokeWidth={1}
                 size={22}

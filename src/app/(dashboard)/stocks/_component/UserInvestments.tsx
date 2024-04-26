@@ -1,10 +1,13 @@
+"use client";
 import Link from "next/link";
 import React from "react";
 import InvestmentCard from "./InvestmentCard";
+import { useAuth } from "@/store/authContext";
 
 type Props = {};
 
 function UserInvestments({}: Props) {
+  const { authState } = useAuth();
   return (
     <div>
       <div className="flex items-center justify-between">
@@ -14,7 +17,7 @@ function UserInvestments({}: Props) {
         </Link>
       </div>
       <div className="flex items-center justify-between mt-5">
-        <InvestmentCard />
+        <InvestmentCard userId={authState.user._id} />
       </div>
     </div>
   );
